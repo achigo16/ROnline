@@ -1,0 +1,24 @@
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    margin-bottom: 10px;
+}
+
+th, td{
+    padding: 5px 10px;
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}
+a:hover{
+   color: red;
+}
+
+.error{
+    text-align: center;
+}
