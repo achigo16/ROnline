@@ -31,7 +31,7 @@ CREATE TABLE `tbkelas` (
   `Kkelas` varchar(3) NOT NULL,
   `Kjurusan` varchar(15) NOT NULL,
   `Kurutan` int(2) NOT NULL,
-  `Kkouta` int(3) NOT NULL DEFAULT '39',
+  `Kkuota` int(3) NOT NULL DEFAULT '39',
   `Ktahun1` varchar(4) NOT NULL,
   `Ktahun2` int(4) NOT NULL,
   `Kstatus` varchar(1) NOT NULL

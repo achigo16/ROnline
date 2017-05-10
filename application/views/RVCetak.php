@@ -4,7 +4,7 @@
     </head>
     <body>
         <h2>Cetak Data</h2>
-        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="RCSave">
+        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="RCPDF">
             <table>
                 <tr>
                     <td>Nama Siswa</td>

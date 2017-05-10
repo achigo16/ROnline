@@ -32,12 +32,12 @@
                 <tr>
                     <td>Jumlah Siswa</td>
                     <td>:</td>
-                    <td><input type="number" name="jumlah" min="1" max="<?php echo $isi['Kkouta'] ?>" value="<?php echo $isi['Kjumlah'] ?>" disabled></td>
+                    <td><input type="number" name="jumlah" min="1" max="<?php echo $isi['Kkuota'] ?>" value="<?php echo $isi['Kjumlah'] ?>" disabled></td>
                 </tr>
                 <tr>
                     <td>Batas Siswa</td>
                     <td>:</td>
-                    <td><input type="number" name="kouta" min="1" max="100" value="<?php echo $isi['Kkouta'] ?>"></td>
+                    <td><input type="number" name="kuota" min="1" max="100" value="<?php echo $isi['Kkuota'] ?>"></td>
                 </tr>
                 <tr>
                     <td>Tahun Angkatan</td>

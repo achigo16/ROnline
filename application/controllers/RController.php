@@ -118,7 +118,7 @@ class RController extends CI_Controller{
                     'Kkelas' => $this->input->post('kelas'),
                     'Kjurusan' => $this->input->post('jurusan'),
                     'Kurutan' => $this->input->post('urutan'),
-                    'Kkouta' => $this->input->post('kouta'),
+                    'Kkuota' => $this->input->post('kuota'),
                     'Kjumlah' => 0,
                     'Ktahun1' => $this->input->post('tahun1'),
                     'Ktahun2' => $this->input->post('tahun2'),
@@ -128,10 +128,10 @@ class RController extends CI_Controller{
             else if($type == "update"){
                 $kode_kelas = array('Kkode_kelas' => $this->input->post('kode_kelas'));
                 $data = array(
-                    'Kkouta' => $this->input->post('kouta'),
+                    'Kkuota' => $this->input->post('kuota'),
                     'Kstatus' => $this->input->post('status')
                 );
-                if($this->input->post('kouta') < $this->input->post('jumlah')){
+                if($this->input->post('kuota') < $this->input->post('jumlah')){
                     redirect(base_url("RController/RKelas"));
                 }
                 $this->db->where($kode_kelas);
@@ -261,6 +261,16 @@ class RController extends CI_Controller{
             $data['siswa'] = $this->RModel->cek("tbsiswa")->result();
             $data['kelas'] = $this->RModel->cek("tbkelas")->result();
             $this->load->view('RVCetak', $data);
+        }
+        function RCPDF(){
+            $this->load->helper(array('dompdf', 'file'));
+            $html = $this->load->view('welcome_message', '', true);
+
+            $filename = 'Raport Siswa '.$this->input->post;
+            $paper = 'A4';
+            $orientation = 'potrait';
+
+            pdf_create($html, $filename, $paper, $orientation);
         }
     //END Cetak
 }

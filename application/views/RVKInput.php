@@ -49,7 +49,7 @@
                 <tr>
                     <td>Batas Siswa</td>
                     <td>:</td>
-                    <td><input type="number" name="kouta" min="1" max="100"></td>
+                    <td><input type="number" name="kuota" min="1" max="100"></td>
                 </tr>
                 <tr>
                     <td>Tahun Angkatan</td>
