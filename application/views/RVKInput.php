@@ -47,6 +47,11 @@
                     <td><input type="number" name="urutan" min="1" max="10"></td>
                 </tr>
                 <tr>
+                    <td>Batas Siswa</td>
+                    <td>:</td>
+                    <td><input type="number" name="kouta" min="1" max="100"></td>
+                </tr>
+                <tr>
                     <td>Tahun Angkatan</td>
                     <td>:</td>
                     <td><input type="number" name="tahun1" min="1999" max="2050"> / 

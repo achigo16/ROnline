@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2017 at 10:26 AM
+-- Generation Time: May 09, 2017 at 11:27 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -31,18 +31,11 @@ CREATE TABLE `tbkelas` (
   `Kkelas` varchar(3) NOT NULL,
   `Kjurusan` varchar(15) NOT NULL,
   `Kurutan` int(2) NOT NULL,
+  `Kkouta` int(3) NOT NULL DEFAULT '39',
   `Ktahun1` varchar(4) NOT NULL,
   `Ktahun2` int(4) NOT NULL,
   `Kstatus` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbkelas`
---
-
-INSERT INTO `tbkelas` (`Kkode_kelas`, `Kkelas`, `Kjurusan`, `Kurutan`, `Ktahun1`, `Ktahun2`, `Kstatus`) VALUES
-('R01', 'X', 'RPL', 1, '2015', 2016, 'Y'),
-('R02', 'X', 'Elektro', 1, '2015', 2016, 'Y');
 
 -- --------------------------------------------------------
 
@@ -55,14 +48,6 @@ CREATE TABLE `tbmapel` (
   `Mnama_mapel` varchar(100) NOT NULL,
   `Mkkm` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbmapel`
---
-
-INSERT INTO `tbmapel` (`Mkode_mapel`, `Mnama_mapel`, `Mkkm`) VALUES
-('M01', 'Bahasa Indonesia', 75),
-('M02', 'Bahasa Inggris', 75);
 
 -- --------------------------------------------------------
 
@@ -103,13 +88,6 @@ CREATE TABLE `tbsiswa` (
   `Stelp` varchar(20) NOT NULL,
   `Sstatus` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbsiswa`
---
-
-INSERT INTO `tbsiswa` (`Snis`, `Snisn`, `Snama`, `Stempat`, `Stanggal`, `Sjk`, `Sagama`, `Skode_kelas`, `Salamat`, `Stelp`, `Sstatus`) VALUES
-('151610455', '9999999999', 'Adityawan Chandra', 'Padang', '1999-09-16', 'L', 'Islam', 'R01', 'jj', '00000000000', 'Y');
 
 --
 -- Indexes for dumped tables

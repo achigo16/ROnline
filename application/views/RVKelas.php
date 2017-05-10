@@ -11,6 +11,7 @@
                 <th>Kode Kelas</th>
                 <th>Nama Kelas</th>
                 <th>Tahun Angkatan</th>
+                <th>Jumlah Siswa</th>
                 <th>Status</th>
                 <th colspan="2">Aksi</th>
             </tr>
@@ -26,6 +27,7 @@
                 <td><?php echo $r->Kkode_kelas; ?></td>
                 <td><?php echo $r->Kkelas."-".$r->Kjurusan." ".$r->Kurutan; ?></td>
                 <td><?php echo $r->Ktahun1."/".$r->Ktahun2; ?></td>
+                <td><?php echo $r->Kjumlah."/".$r->Kkouta." Siswa"; ?></td>
                 <td><?php echo parStatus($r->Kstatus); ?></td>
                 <td><a href="RKEdit/<?php echo $r->Kkode_kelas; ?>">Edit Data</a></td>
                 <td><a href="RKDelete/<?php echo $r->Kkode_kelas; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>

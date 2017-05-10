@@ -28,6 +28,11 @@ class RController extends CI_Controller{
         function RSDelete(){
             $Snis = array('Snis' => $this->uri->segment(3));
             $Nnis = array('Nnis' => $this->uri->segment(3));
+            $siswa = $this->RModel->cari("tbsiswa", $Snis)->row_array();
+            $kelas = $this->RModel->cari("tbkelas", array('Kkode_kelas' => $siswa['Skode_kelas']))->row_array();
+            $tambah = array('Kjumlah' => ($kelas['Kjumlah'] -= 1));
+            $this->db->where(array('Kkode_kelas' => $siswa['Skode_kelas']));
+            $this->db->update('tbkelas', $tambah);
             $this->db->where($Snis);
             $this->db->delete('tbsiswa');
             $this->db->where($Nnis);
@@ -51,6 +56,12 @@ class RController extends CI_Controller{
                     'Stelp' => $this->input->post('telp'),
                     'Sstatus' => "Y"
                 );
+                
+                $kelas = $this->RModel->cari("tbkelas", array('Kkode_kelas' => $this->input->post('kode_kelas')))->row_array();
+                $tambah = array('Kjumlah' => ($kelas['Kjumlah'] += 1));
+                $this->db->where(array('Kkode_kelas' => $this->input->post('kode_kelas')));
+                $this->db->update('tbkelas', $tambah);
+                
                 $cek = $this->RModel->cari("tbsiswa", array('Snis' => $this->input->post('nis')))->num_rows();
                 if($cek>0){
                     redirect(base_url("RController/RSiswa"));
@@ -91,8 +102,9 @@ class RController extends CI_Controller{
         }
         function RKDelete(){
             $kode_kelas = array('Kkode_kelas' => $this->uri->segment(3));
-            $cek = $this->RModel->cari("tbnilai", array('Nkode_kelas' => $this->uri->segment(3)))->num_rows();
-            if(!$cek>0){
+            $cek1 = $this->RModel->cari("tbnilai", array('Nkode_kelas' => $this->uri->segment(3)))->num_rows();
+            $cek2 = $this->RModel->cari("tbsiswa", array('Skode_kelas' => $this->uri->segment(3)))->num_rows();
+            if(!$cek1>0 && $cek2<=0){
                 $this->db->where($kode_kelas);
                 $this->db->delete('tbkelas');
             }
@@ -106,6 +118,8 @@ class RController extends CI_Controller{
                     'Kkelas' => $this->input->post('kelas'),
                     'Kjurusan' => $this->input->post('jurusan'),
                     'Kurutan' => $this->input->post('urutan'),
+                    'Kkouta' => $this->input->post('kouta'),
+                    'Kjumlah' => 0,
                     'Ktahun1' => $this->input->post('tahun1'),
                     'Ktahun2' => $this->input->post('tahun2'),
                     'Kstatus' => "Y"
@@ -114,8 +128,12 @@ class RController extends CI_Controller{
             else if($type == "update"){
                 $kode_kelas = array('Kkode_kelas' => $this->input->post('kode_kelas'));
                 $data = array(
+                    'Kkouta' => $this->input->post('kouta'),
                     'Kstatus' => $this->input->post('status')
                 );
+                if($this->input->post('kouta') < $this->input->post('jumlah')){
+                    redirect(base_url("RController/RKelas"));
+                }
                 $this->db->where($kode_kelas);
             }
             $this->db->$type('tbkelas', $data);
@@ -238,4 +256,11 @@ class RController extends CI_Controller{
         }
     //END Nilai
     
+    //Cetak (RC)
+        function RCetak(){
+            $data['siswa'] = $this->RModel->cek("tbsiswa")->result();
+            $data['kelas'] = $this->RModel->cek("tbkelas")->result();
+            $this->load->view('RVCetak', $data);
+        }
+    //END Cetak
 }

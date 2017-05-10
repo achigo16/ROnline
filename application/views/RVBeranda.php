@@ -10,6 +10,6 @@
         <a href="RController/RKelas">Kelas</a><br>
         <a href="RController/RMapel">Mata Pelajaran</a><br>
         <a href="RController/RNilai">Nilai</a><br>
-        <a href="">Cetak Raport</a><br>
+        <a href="RController/RCetak">Cetak Raport</a><br>
     </body>
 </html>

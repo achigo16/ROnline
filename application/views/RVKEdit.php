@@ -7,6 +7,7 @@
         <h2>Edit Data Kelas</h2>
         <form autocomplete="off" method="post" action="../RKSave">
             <input type="hidden" name="kode_kelas" value="<?php echo $isi['Kkode_kelas'] ?>">
+            <input type="hidden" name="jumlah" value="<?php echo $isi['Kjumlah'] ?>">
             <table>
                 <tr>
                     <td>Kode Kelas</td>
@@ -27,6 +28,16 @@
                     <td>Urutan Kelas</td>
                     <td>:</td>
                     <td><input type="number" name="urutan" min="1" max="10" value="<?php echo $isi['Kurutan'] ?>" disabled></td>
+                </tr>
+                <tr>
+                    <td>Jumlah Siswa</td>
+                    <td>:</td>
+                    <td><input type="number" name="jumlah" min="1" max="<?php echo $isi['Kkouta'] ?>" value="<?php echo $isi['Kjumlah'] ?>" disabled></td>
+                </tr>
+                <tr>
+                    <td>Batas Siswa</td>
+                    <td>:</td>
+                    <td><input type="number" name="kouta" min="1" max="100" value="<?php echo $isi['Kkouta'] ?>"></td>
                 </tr>
                 <tr>
                     <td>Tahun Angkatan</td>

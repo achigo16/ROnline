@@ -60,9 +60,9 @@
                     <td>
                         <select name="kode_kelas">
                             <option value="Pilih" disabled selected>Pilih Kelas</option>
-                            <?php foreach($data_kelas as $b){?>
+                            <?php foreach($data_kelas as $b){ if($b->Kjumlah < $b->Kkouta){?>
                             <option value="<?php echo $b->Kkode_kelas ?>"><?php echo $b->Kkelas."-".$b->Kjurusan." ".$b->Kurutan." (".$b->Ktahun1."/".$b->Ktahun2.")" ?></option>
-                            <?php } ?>
+                            <?php }} ?>
                         </select>
                     </td>
                 </tr>
