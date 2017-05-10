@@ -2,6 +2,14 @@
     <head>
         <title>Tambah Data Nilai | Raport Online</title>
         <script type="text/javascript" src="<?php echo base_url()?>asset/js/validasi.js"></script>
+        <link href="<?php echo base_url()?>asset/css/select2.min.css" rel="stylesheet" />
+        <script src="<?php echo base_url()?>asset/js/jquery.min.js"></script>
+        <script src="<?php echo base_url()?>asset/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".autocomplete").select2();
+            });
+        </script>
     </head>
     <body>
         <h2>Tambah Data Nilai</h2>
@@ -17,7 +25,7 @@
                     <td>Nama Siswa</td>
                     <td>:</td>
                     <td>
-                        <select name="nis">
+                        <select name="nis" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Siswa</option>
                             <?php foreach($data_siswa as $b){?>
                             <option value="<?php echo $b->Snis ?>"><?php echo $b->Snama ?></option>
@@ -29,7 +37,7 @@
                     <td>Kelas</td>
                     <td>:</td>
                     <td>
-                        <select name="kode_kelas">
+                        <select name="kode_kelas" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Kelas</option>
                             <?php foreach($data_kelas as $b){?>
                             <option value="<?php echo $b->Kkode_kelas ?>"><?php echo $b->Kkelas."-".$b->Kjurusan." ".$b->Kurutan." (".$b->Ktahun1."/".$b->Ktahun2.")" ?></option>
@@ -46,7 +54,7 @@
                     <td>Mata Pelajaran</td>
                     <td>:</td>
                     <td>
-                        <select name="kode_mapel">
+                        <select name="kode_mapel" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Mata Pelajaran</option>
                             <?php foreach($data_mapel as $b){?>
                             <option value="<?php echo $b->Mkode_mapel ?>"><?php echo $b->Mnama_mapel ?></option>
@@ -78,7 +86,7 @@
                     <td>Nilai Sikap</td>
                     <td>:</td>
                     <td>
-                        <select name="sikap">
+                        <select name="sikap" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Nilai Sikap</option>
                             <option value="SB">Sangat Baik</option>
                             <option value="B">Baik</option>

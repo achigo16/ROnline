@@ -2,6 +2,14 @@
     <head>
         <title>Edit Data Nilai | Raport Online</title>
         <script type="text/javascript" src="<?php echo base_url()?>asset/js/validasi.js"></script>
+        <link href="<?php echo base_url()?>asset/css/select2.min.css" rel="stylesheet" />
+        <script src="<?php echo base_url()?>asset/js/jquery.min.js"></script>
+        <script src="<?php echo base_url()?>asset/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".autocomplete").select2();
+            });
+        </script>
     </head>
     <body>
         <h2>Edit Data Nilai</h2>
@@ -62,7 +70,7 @@
                     <td>Nilai Sikap</td>
                     <td>:</td>
                     <td>
-                        <select name="sikap">
+                        <select name="sikap" class="autocomplete">
                             <option value="Pilih" disabled>Pilih Nilai Sikap</option>
                             <?php echo parSikap($data_nilai['Nnilai_sikap']) ?>
                         </select>

@@ -2,6 +2,14 @@
     <head>
         <title>Tambah Data Kelas | Raport Online</title>
         <script type="text/javascript" src="<?php echo base_url()?>asset/js/validasi.js"></script>
+        <link href="<?php echo base_url()?>asset/css/select2.min.css" rel="stylesheet" />
+        <script src="<?php echo base_url()?>asset/js/jquery.min.js"></script>
+        <script src="<?php echo base_url()?>asset/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".autocomplete").select2();
+            });
+        </script>
     </head>
     <body>
         <h2>Tambah Data Kelas</h2>
@@ -17,7 +25,7 @@
                     <td>Kelas</td>
                     <td>:</td>
                     <td>
-                        <select name="kelas">
+                        <select name="kelas" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Kelas</option> 
                             <option value="X">Kelas X</option>
                             <option value="XI">Kelas XI</option>
@@ -29,7 +37,7 @@
                     <td>Jurusan</td>
                     <td>:</td>
                     <td>
-                        <select name="jurusan">
+                        <select name="jurusan" class="autocomplete">
                             <option value="Pilih" disabled selected>Pilih Jurusan</option> 
                             <option value="Elektro">Elekronika Industri</option>
                             <option value="Mesin">Pemesinan</option>
