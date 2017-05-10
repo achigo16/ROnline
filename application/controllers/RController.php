@@ -264,13 +264,25 @@ class RController extends CI_Controller{
         }
         function RCPDF(){
             $this->load->helper(array('dompdf', 'file'));
-            $html = $this->load->view('welcome_message', '', true);
-
-            $filename = 'Raport Siswa '.$this->input->post;
+            
+            $data['siswa'] = $this->RModel->cari("tbsiswa", array('Snis' => $this->input->post('nis')))->row_array();
+            $data['kelas'] = $this->RModel->cari("tbkelas", array('Kkode_kelas' => $this->input->post('kode_kelas')))->row_array();
+            $data['nilai'] = $this->RModel->cariNilai("tbnilai", array('Nnis' => $this->input->post('nis'), 'Nkode_kelas' => $this->input->post('kode_kelas'), 'Nsemester' => $this->input->post('semester')))->result();
+            $data['semester'] = $this->input->post('semester');
+            $cek = $this->RModel->cari("tbnilai", array('Nnis' => $this->input->post('nis'), 'Nkode_kelas' => $this->input->post('kode_kelas'), 'Nsemester' => $this->input->post('semester')))->num_rows();
+            
+            $html = $this->load->view('RVCRaport', $data, true);
+            
+            $filename = 'Raport Siswa ';
             $paper = 'A4';
             $orientation = 'potrait';
-
-            pdf_create($html, $filename, $paper, $orientation);
+            
+            if($cek>0){
+                pdf_create($html, $filename, $paper, $orientation);
+            }
+            else{
+                redirect(base_url("RController/RCetak"));
+            }
         }
     //END Cetak
 }

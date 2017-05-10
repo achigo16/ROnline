@@ -25,6 +25,17 @@ class RModel extends CI_Model{
         return $this->db->get_where($table, $data);
     }
     
+    function cariNilai($table, $data){
+        if($table=="tbnilai"){
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->where($data);
+            $this->db->join('tbmapel', 'tbmapel.Mkode_mapel = tbnilai.Nkode_mapel');
+            $isi = $this->db->get();
+            return $isi;
+        }
+    }
+    
     function CKode($table, $data, $awal){
         $this->db->select('RIGHT('.$table.'.'.$data.',1) as kode', FALSE);
         $this->db->order_by($data,'DESC');    

@@ -40,5 +40,6 @@
                 </tr>
             </table>
         </form>
+        <a href="../">Beranda</a>
     </body>
 </html>
