@@ -29,8 +29,8 @@
                 <td><?php echo $r->Ktahun1."/".$r->Ktahun2; ?></td>
                 <td><?php echo $r->Kjumlah."/".$r->Kkuota." Siswa"; ?></td>
                 <td><?php echo parStatus($r->Kstatus); ?></td>
-                <td><a href="RKEdit/<?php echo $r->Kkode_kelas; ?>">Edit Data</a></td>
-                <td><a href="RKDelete/<?php echo $r->Kkode_kelas; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
+                <td><a href="RKController/RKEdit/<?php echo $r->Kkode_kelas; ?>">Edit Data</a></td>
+                <td><a href="RKController/RKDelete/<?php echo $r->Kkode_kelas; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
             </tr>
             
             <?php 
@@ -40,8 +40,8 @@
             ?>
             
         </table>
-        <a href="RKInput">Tambah Kelas</a><br>
-        <a href="../">Beranda</a>
+        <a href="RKController/RKInput">Tambah Kelas</a><br>
+        <a href="RController">Beranda</a>
     </body>
 </html>
 <?php

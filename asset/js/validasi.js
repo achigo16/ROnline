@@ -111,7 +111,7 @@ function validasi_input_kelas(form){
         alert("Anda Belum Memilih Kelas!");
         return(false);
     }
-    if(form.jurusan.value == "Pilih"){
+    if(form.jurusan.value == ""){
         alert("Anda Belum Memilih Jurusan!");
         return(false);
     }

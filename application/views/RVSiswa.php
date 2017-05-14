@@ -37,8 +37,8 @@
                 <td><?php echo $r->Salamat; ?></td>
                 <td><?php echo $r->Stelp; ?></td>
                 <td><?php echo parStatus($r->Sstatus); ?></td>
-                <td><a href="RSEdit/<?php echo $r->Snis; ?>">Edit Data</a></td>
-                <td><a href="RSDelete/<?php echo $r->Snis; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?\nSemua Data yang Berhubungan dengan Siswa akan ikut terhapus!')">Hapus Data</a></td>
+                <td><a href="RSController/RSEdit/<?php echo $r->Snis; ?>">Edit Data</a></td>
+                <td><a href="RSController/RSDelete/<?php echo $r->Snis; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?\nSemua Data yang Berhubungan dengan Siswa akan ikut terhapus!')">Hapus Data</a></td>
             </tr>
             
 <?php 
@@ -48,8 +48,8 @@
 ?>
             
         </table>
-        <a href="RSInput">Tambah Siswa</a><br>
-        <a href="../">Beranda</a>
+        <a href="RSController/RSInput">Tambah Siswa</a><br>
+        <a href="RController">Beranda</a>
     </body>
 </html>
 <?php

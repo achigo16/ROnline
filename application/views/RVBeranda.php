@@ -6,10 +6,10 @@
     <body>
         <h2>Selamat Datang di Aplikasi Raport Online</h2>
         <h4>Menu</h4>
-        <a href="RController/RSiswa">Siswa</a><br>
-        <a href="RController/RKelas">Kelas</a><br>
-        <a href="RController/RMapel">Mata Pelajaran</a><br>
-        <a href="RController/RNilai">Nilai</a><br>
-        <a href="RController/RCetak">Cetak Raport</a><br>
+        <a href="RSController">Siswa</a><br>
+        <a href="RKController">Kelas</a><br>
+        <a href="RMController">Mata Pelajaran</a><br>
+        <a href="RNController">Nilai</a><br>
+        <a href="RCController">Cetak Raport</a><br>
     </body>
 </html>

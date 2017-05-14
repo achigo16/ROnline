@@ -1,11 +1,12 @@
 table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
-    width: 100%;
 }
 
 table{
     margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 th, td{

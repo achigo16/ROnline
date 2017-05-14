@@ -41,8 +41,8 @@
                 <td><?php echo $r->Nnilai_akhir; ?></td>
                 <td><?php echo $r->Nnilai_praktek; ?></td>
                 <td><?php echo $r->Nnilai_sikap; ?></td>
-                <td><a href="RNEdit/<?php echo $r->Nkode_nilai; ?>">Edit Data</a></td>
-                <td><a href="RNDelete/<?php echo $r->Nkode_nilai; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
+                <td><a href="RNController/RNEdit/<?php echo $r->Nkode_nilai; ?>">Edit Data</a></td>
+                <td><a href="RNController/RNDelete/<?php echo $r->Nkode_nilai; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
             </tr>
             
             <?php 
@@ -52,7 +52,7 @@
             ?>
             
         </table>
-        <a href="RNInput">Tambah Nilai</a><br>
-        <a href="../">Beranda</a>
+        <a href="RNController/RNInput">Tambah Nilai</a><br>
+        <a href="RController">Beranda</a>
     </body>
 </html>

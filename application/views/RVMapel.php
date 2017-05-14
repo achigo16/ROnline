@@ -25,8 +25,8 @@
                 <td><?php echo $r->Mkode_mapel; ?></td>
                 <td><?php echo $r->Mnama_mapel; ?></td>
                 <td><?php echo $r->Mkkm; ?></td>
-                <td><a href="RMEdit/<?php echo $r->Mkode_mapel; ?>">Edit Data</a></td>
-                <td><a href="RMDelete/<?php echo $r->Mkode_mapel; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
+                <td><a href="RMController/RMEdit/<?php echo $r->Mkode_mapel; ?>">Edit Data</a></td>
+                <td><a href="RMController/RMDelete/<?php echo $r->Mkode_mapel; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data?')">Hapus Data</a></td>
             </tr>
             
             <?php 
@@ -36,7 +36,7 @@
             ?>
             
         </table>
-        <a href="RMInput">Tambah Mata Pelajaran</a><br>
-        <a href="../">Beranda</a>
+        <a href="RMController/RMInput">Tambah Mata Pelajaran</a><br>
+        <a href="RController">Beranda</a>
     </body>
 </html>

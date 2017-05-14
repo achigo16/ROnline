@@ -12,7 +12,7 @@
     </head>
     <body>
         <h2>Cetak Data</h2>
-        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="RCPDF">
+        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="RCController/RCPDF">
             <table>
                 <tr>
                     <td>Nama Siswa</td>
@@ -48,6 +48,6 @@
                 </tr>
             </table>
         </form>
-        <a href="../">Beranda</a>
+        <a href="RController">Beranda</a>
     </body>
 </html>
