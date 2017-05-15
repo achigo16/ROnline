@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>asset/css/style.css">
     </head>
     <body>
-        <img src="asset/img/header.png" style="max-width:100%; max-height:100%; margin-bottom:20px;">
+        <?php echo $header['Cisi'] ?>
         NIS/NISN : <?php echo $siswa['Snis']."/".$siswa['Snisn']; ?><br>
         Nama Siswa : <?php echo $siswa['Snama'] ?><br>
         Kelas : <?php echo $kelas['Kkelas']."-".$kelas['Kjurusan']." ".$kelas['Kurutan'] ?><br>
@@ -46,5 +46,6 @@
                 }
             ?>
         </table>
+        <?php echo $footer['Cisi'] ?>
     </body>
 </html>

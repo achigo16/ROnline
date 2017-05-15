@@ -115,6 +115,9 @@ class RSController extends CI_Controller{
             $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
             $cek = $this->RModel->cari("tbsiswa", array('Snis' => $rowData[0][0]))->num_rows();
             if(!$cek > 0){
+                $dataKelas = explode("-", $rowData[0][7]);
+                $dataTahun = explode("/", $rowData[0][11]);
+                $kelas = $this->RModel->cari("tbkelas", array('Kkelas' => $dataKelas[0], 'Kjurusan' => $dataKelas[1], 'Kurutan' => $dataKelas[2], 'Ktahun1' => $dataTahun[0], 'Ktahun2' => $dataTahun[1]))->row_array();
                 $data = array(
                     'Snis' => $rowData[0][0],
                     'Snisn' => $rowData[0][1],
@@ -123,19 +126,18 @@ class RSController extends CI_Controller{
                     'Stanggal' => date('Y-m-d', strtotime($rowData[0][4])),
                     'Sjk' => $rowData[0][5],
                     'Sagama' => $rowData[0][6],
-                    'Skode_kelas' => $rowData[0][7],
+                    'Skode_kelas' => $kelas['Kkode_kelas'],
                     'Salamat' => $rowData[0][8],
                     'Stelp' => $rowData[0][9],
                     'Sstatus' => $rowData[0][10]
                 );
-                $kelas = $this->RModel->cari("tbkelas", array('Kkode_kelas' => $rowData[0][7]))->row_array();
                 $tambah = array('Kjumlah' => ($kelas['Kjumlah'] += 1));
                 $this->db->where(array('Kkode_kelas' => $rowData[0][7]));
                 $this->db->update('tbkelas', $tambah);
                 $insert = $this->db->insert("tbsiswa",$data);
             }
         }
-//        delete_files($data['file_path']);
+        unlink($inputFileName);
         redirect(base_url("RSController"));
     }
 }

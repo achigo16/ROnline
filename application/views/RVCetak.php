@@ -44,7 +44,32 @@
                     <td><input type="number" name="semester" min="1" max="6"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" name="type">Submit</button></td>
+                    <td>Header</td>
+                    <td>:</td>
+                    <td>
+                        <select name="header" class="autocomplete" style="width:100%">
+                            <option name="Pilih" disabled selected>Pilih Configurasi Header</option>
+                            <?php foreach($header as $b){?>
+                            <option value="<?php echo $b->Cid ?>"><?php echo $b->Cid." - ".$b->Cnama ?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Footer</td>
+                    <td>:</td>
+                    <td>
+                        <select name="footer" class="autocomplete" style="width:100%">
+                            <option name="Pilih" disabled selected>Pilih Configurasi Footer</option>
+                            <?php foreach($footer as $b){?>
+                            <option value="<?php echo $b->Cid ?>"><?php echo $b->Cid." - ".$b->Cnama ?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" name="type">Submit</button></td>
+                    <td><a href="RCController/ConPDF">Tambah Configurasi PDF</a></td>
                 </tr>
             </table>
         </form>

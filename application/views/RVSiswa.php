@@ -49,6 +49,7 @@
             
         </table>
         <a href="RSController/RSInput">Tambah Siswa</a><br>
+        <a href="RSController/RSExel">Import Exel</a><br>
         <a href="RController">Beranda</a>
     </body>
 </html>

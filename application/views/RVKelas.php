@@ -41,6 +41,7 @@
             
         </table>
         <a href="RKController/RKInput">Tambah Kelas</a><br>
+        <a href="RKController/RKExel">Import Exel</a><br>
         <a href="RController">Beranda</a>
     </body>
 </html>

@@ -92,7 +92,7 @@ class RMController extends CI_Controller{
                 $insert = $this->db->insert("tbmapel", $data);
             }
         }
-//        delete_files($data['file_path']);
+        unlink($inputFileName);
         redirect(base_url("RMController"));
     }
     

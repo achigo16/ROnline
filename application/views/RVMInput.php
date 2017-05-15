@@ -25,7 +25,6 @@
                 </tr>
                 <tr>
                     <td colspan="2"><button type="submit" name="type" value="insert">Submit</button></td>
-                    <td><a href="RMExel">Import Exel</a></td>
                 </tr>
             </table>
         </form>

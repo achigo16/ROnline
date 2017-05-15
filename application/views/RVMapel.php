@@ -37,6 +37,7 @@
             
         </table>
         <a href="RMController/RMInput">Tambah Mata Pelajaran</a><br>
+        <a href="RMController/RMExel">Import Exel</a><br>
         <a href="RController">Beranda</a>
     </body>
 </html>

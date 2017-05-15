@@ -9,10 +9,6 @@ table{
     text-align: center;
 }
 
-th, td{
-    padding: 5px 10px;
-}
-
 a{
     text-decoration: none;
     color: blue;
