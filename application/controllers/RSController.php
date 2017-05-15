@@ -3,6 +3,7 @@ class RSController extends CI_Controller{
     
     public function __construct(){
         parent::__construct();
+        $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
         $this->load->model('RModel');
     }
     public function index(){
@@ -78,5 +79,63 @@ class RSController extends CI_Controller{
         $this->db->$type('tbsiswa', $data);
         redirect(base_url("RSController"));
     }
-    
+    function RSExel(){
+        $this->load->view('RSVExel');
+    }
+    function RSExSave(){
+        $fileName = time().$_FILES['file']['name'];
+         
+        $config['upload_path'] = './asset/temp/'; 
+        $config['file_name'] = $fileName;
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 10000;
+         
+        $this->load->library('upload', $config);
+         
+        if(! $this->upload->do_upload('file')){
+            $this->upload->display_errors();
+        }
+        
+        $data = $this->upload->data();
+        $inputFileName = './asset/temp/'.$data['file_name'];
+        
+        try {
+            $inputFileType = IOFactory::identify($inputFileName);
+            $objReader = IOFactory::createReader($inputFileType);
+            $objPHPExcel = $objReader->load($inputFileName);
+        } catch(Exception $e) {
+            die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+        }
+        
+        $sheet = $objPHPExcel->getSheet(0);
+        $highestRow = $sheet->getHighestRow();
+        $highestColumn = $sheet->getHighestColumn();
+        
+        for ($row = 2; $row <= $highestRow; $row++){   
+            $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
+            $cek = $this->RModel->cari("tbsiswa", array('Snis' => $rowData[0][0]))->num_rows();
+            if(!$cek > 0){
+                $data = array(
+                    'Snis' => $rowData[0][0],
+                    'Snisn' => $rowData[0][1],
+                    'Snama' => $rowData[0][2],
+                    'Stempat' => $rowData[0][3],
+                    'Stanggal' => date('Y-m-d', strtotime($rowData[0][4])),
+                    'Sjk' => $rowData[0][5],
+                    'Sagama' => $rowData[0][6],
+                    'Skode_kelas' => $rowData[0][7],
+                    'Salamat' => $rowData[0][8],
+                    'Stelp' => $rowData[0][9],
+                    'Sstatus' => $rowData[0][10]
+                );
+                $kelas = $this->RModel->cari("tbkelas", array('Kkode_kelas' => $rowData[0][7]))->row_array();
+                $tambah = array('Kjumlah' => ($kelas['Kjumlah'] += 1));
+                $this->db->where(array('Kkode_kelas' => $rowData[0][7]));
+                $this->db->update('tbkelas', $tambah);
+                $insert = $this->db->insert("tbsiswa",$data);
+            }
+        }
+//        delete_files($data['file_path']);
+        redirect(base_url("RSController"));
+    }
 }

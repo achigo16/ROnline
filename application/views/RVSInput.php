@@ -85,7 +85,8 @@
                     <td><input type="number" name="telp"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td colspan="2"><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td><a href="RSExel">Import Exel</a></td>
                 </tr>
             </table>
         </form>

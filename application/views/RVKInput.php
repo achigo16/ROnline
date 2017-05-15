@@ -66,7 +66,8 @@
                     <input type="number" name="tahun2" min="2000" max="2051"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td colspan="2"><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td><a href="RKExel">Import Exel</a></td>
                 </tr>
             </table>
         </form>

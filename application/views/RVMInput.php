@@ -24,7 +24,8 @@
                     <td><input type="number" name="kkm" min="0" max="100"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td colspan="2"><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td><a href="RMExel">Import Exel</a></td>
                 </tr>
             </table>
         </form>
