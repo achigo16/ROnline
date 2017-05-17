@@ -36,26 +36,4 @@ class RCController extends CI_Controller{
             redirect(base_url("RCController"));
         }
     }
-    function ConPDF(){
-        $this->load->view("RVCConfig");
-    }
-    function SaveConPDF(){
-        $type = $this->input->post('type');
-        if($type == "insert"){
-            $data = array(
-                'Cnama' => $this->input->post('nama'),
-                'Ctipe' => $this->input->post('tipe'),
-                'Cisi' => $this->input->post('isi')
-            );
-        }
-        else if($type == "update"){
-            $id = array('Cid' => $this->input->post('id'));
-            $data = array(
-                'Cisi' => $this->input->post('isi')
-            );
-            $this->db->where($id);
-        }
-        $this->db->$type('tbconfig', $data);
-        redirect(base_url("RCController"));
-    }
 }

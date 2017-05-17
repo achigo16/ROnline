@@ -69,10 +69,10 @@
                 </tr>
                 <tr>
                     <td colspan="2"><button type="submit" name="type">Submit</button></td>
-                    <td><a href="RCController/ConPDF">Tambah Configurasi PDF</a></td>
                 </tr>
             </table>
         </form>
+        <a href="RCPDF">Configurasi PDF</a><br>
         <a href="RController">Beranda</a>
     </body>
 </html>

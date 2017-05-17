@@ -1,13 +1,10 @@
 <html>
     <head>
         <title>Tambah Configurasi PDF | Raport Online</title>
-        <link href="<?php echo base_url()?>asset/css/select2.min.css" rel="stylesheet" />
         <script src="<?php echo base_url()?>asset/js/jquery.min.js"></script>
-        <script src="<?php echo base_url()?>asset/js/select2.min.js"></script>
         <script src='<?php echo base_url()?>asset/js/tinymce/tinymce.min.js'></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".autocomplete").select2();
                 tinymce.init({
                     selector:"#wysiwyg",
 
@@ -51,29 +48,24 @@
     </head>
     <body>
         <h2>Tambah Configurasi PDF</h2>
-        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="SaveConPDF">
+        <form autocomplete="off" onsubmit = "return validasi_input_kelas(this)" method="post" action="../SaveConPDF">
+            <input type="hidden" name="id" value="<?php echo $isi['Cid'] ?>">
             <table>
                 <tr>
                     <td>Nama Konfigurasi</td>
                     <td>:</td>
-                    <td><input type="text" name="nama" required/></td>
+                    <td><input type="text" name="nama" value="<?php echo $isi['Cnama'] ?>" disabled/></td>
                 </tr>
                 <tr>
                     <td>Tipe Konfigurasi</td>
                     <td>:</td>
-                    <td>
-                        <select name="tipe"  class="autocomplete" style="width:40%">
-                            <option value="Pilih" disabled selected>Pilih Tipe</option>
-                            <option value="Header">Header</option>
-                            <option value="Footer">Footer</option>
-                        </select>
-                    </td>
+                    <td><input type="text" name="tipe" value="<?php echo $isi['Ctipe'] ?>" disabled></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><textarea name="isi" id="wysiwyg"></textarea></td>
+                    <td colspan="3"><textarea name="isi" id="wysiwyg"><?php echo $isi['Cisi'] ?></textarea></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button type="submit" name="type" value="insert">Submit</button></td>
+                    <td colspan="2"><button type="submit" name="type" value="update">Submit</button></td>
                 </tr>
             </table>
         </form>
