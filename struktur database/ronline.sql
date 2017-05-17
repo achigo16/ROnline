@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2017 at 11:27 AM
+-- Generation Time: May 17, 2017 at 05:45 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbconfig`
+--
+
+CREATE TABLE `tbconfig` (
+  `Cid` varchar(11) NOT NULL,
+  `Cnama` varchar(20) NOT NULL,
+  `Ctipe` varchar(10) NOT NULL,
+  `Cisi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbkelas`
 --
 
@@ -31,6 +44,7 @@ CREATE TABLE `tbkelas` (
   `Kkelas` varchar(3) NOT NULL,
   `Kjurusan` varchar(15) NOT NULL,
   `Kurutan` int(2) NOT NULL,
+  `Kjumlah` int(11) NOT NULL DEFAULT '0',
   `Kkuota` int(3) NOT NULL DEFAULT '39',
   `Ktahun1` varchar(4) NOT NULL,
   `Ktahun2` int(4) NOT NULL,
@@ -92,6 +106,12 @@ CREATE TABLE `tbsiswa` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbconfig`
+--
+ALTER TABLE `tbconfig`
+  ADD PRIMARY KEY (`Cid`);
 
 --
 -- Indexes for table `tbkelas`
